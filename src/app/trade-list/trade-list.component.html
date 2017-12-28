@@ -1,0 +1,19 @@
+<div class="example-container mat-elevation-z8">
+  <mat-table #table [dataSource]="dataSource2">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="tradeId">
+      <mat-header-cell *matHeaderCellDef> Trade Id </mat-header-cell>
+      <mat-cell *matCellDef="let trade"> <a [routerLink]="['/trades', trade.tradeId]">{{trade.tradeId}} </a></mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="tradeName">
+      <mat-header-cell *matHeaderCellDef> Trade Name </mat-header-cell>
+      <mat-cell *matCellDef="let trade"> {{trade.tradeName}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

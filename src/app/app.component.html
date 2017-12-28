@@ -1,0 +1,38 @@
+<div class="app-content">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+    <span id="header"> Order Services</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+
+<div class="app-content">
+  <mat-card>
+    <mat-card-title> Basic Card</mat-card-title>
+    <mat-card-subtitle>Basic Card Subtitle</mat-card-subtitle>
+    <mat-card-content>
+      <p>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+        text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
+        book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially
+        unchanged. 
+      </p>
+      <router-outlet></router-outlet>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title> Basic Card</mat-card-title>
+    <mat-card-subtitle>Basic Card Subtitle</mat-card-subtitle>
+    <mat-card-content>
+      <mat-tab-group>
+        <mat-tab label="Trades"><router-outlet></router-outlet></mat-tab>
+        <mat-tab label="Tab 2">Content 2</mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
+
+
+
+
+</div>
