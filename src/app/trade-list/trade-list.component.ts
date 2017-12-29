@@ -15,8 +15,14 @@ import { Observable } from 'rxjs/Observable';
 
 export class TradeListComponent implements OnInit {
 
-  dataSource2 = new UserDataSource(this.tradeService);
-  displayedColumns = ['tradeId', 'tradeName'];
+  dataSource = new UserDataSource(this.tradeService);
+  displayedColumns = ['tradeId', 'tradeName','quantity'];
+
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    this.dataSource.filter = filterValue;
+  }
 
   constructor(private tradeService: TradeService) { }
 

@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Trade } from './trade';
 
-//Imports to cater to API
+//Imports to cater to consumption of API
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-
-
 
 @Injectable()
 export class TradeService {
@@ -37,6 +35,18 @@ export class TradeService {
             .put(`${this.baseUrl}/v1/trade/${trade.tradeId}`,
             JSON.stringify(trade));
     }
+
+    //Create trade
+    create(trade: Trade):Observable<number> {
+        return this.http.post(`${this.baseUrl}/v1/trade/`, trade)
+               .map(success => success.status)
+               .catch(this.handleError);
+    }
+
+    private handleError (error: Response | any) {
+	console.error(error.message || error);
+	return Observable.throw(error.status);
+    }
 }
 
 function mapTrades(response: Response): Trade[] {
@@ -50,9 +60,8 @@ function mapTrade(response: Response): Trade {
 function toTrade(tr: any): Trade {
     let trade = <Trade>({
         tradeId: tr.tradeId,
-        url: tr.url,
         tradeName: tr.tradeName,
-        quantity: Number.parseInt(tr),
+        quantity: Number.parseInt(tr.quantity),
     });
     console.log('Parsed trade:', trade);
     return trade;

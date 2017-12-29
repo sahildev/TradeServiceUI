@@ -1,4 +1,3 @@
-<!-- HERE: we add the template for the Trades details -->
 <section *ngIf="trade">
   <h2>You selected: {{trade.tradeName}}</h2>
   <h3>Description</h3>
@@ -30,7 +29,7 @@
   </div>
 </section>
 <br>
-<!-- NEW BUTTON HERE! -->
+
 <button mat-icon-button (click)="gotoTradesList()">
     <mat-icon aria-label="Back to trade list">keyboard_return</mat-icon>
   </button>
