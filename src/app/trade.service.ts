@@ -5,6 +5,7 @@ import { Trade } from './trade';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class TradeService {
@@ -38,6 +39,7 @@ export class TradeService {
 
     //Create trade
     create(trade: Trade):Observable<number> {
+        console.log("Inside create");
         return this.http.post(`${this.baseUrl}/v1/trade/`, trade)
                .map(success => success.status)
                .catch(this.handleError);

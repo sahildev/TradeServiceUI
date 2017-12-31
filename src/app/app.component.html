@@ -13,18 +13,18 @@
     <mat-card-content>
    <section>
   <div class="form-container">
-    <form >
+    <form [formGroup]="tradeCreation" (ngSubmit)="onSubmit(tradeCreation)" >
       <mat-form-field>
         <label for="tradeId">Trade Id: </label>
-        <input matInput type="text" name="tradId" required>
+        <input matInput type="text" id="tradeId" name="tradeId" formControlName="tradeId">
       </mat-form-field>
       <mat-form-field>
         <label for="tradeName">Trade Name: </label>
-        <input matInput type="text" name="tradeName" required>
+        <input matInput type="text" id="tradeName" name="tradeName" formControlName="tradeName">
       </mat-form-field>
       <mat-form-field>
         <label for="quantity">Quantity: </label>
-        <input matInput type="text" name="quantity" >
+        <input matInput type="text" name="quantity" formControlName="quantity" >
       </mat-form-field>
       <button mat-raised-button type="submit" >Create</button>
 
